@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>病毒、细菌、炎症、用药：一篇说人话的整理</title>
+    <style>
+        :root {
+            --bg: #f7f5f0;
+            --paper: #fffefa;
+            --ink: #222;
+            --muted: #666;
+            --line: #e6e0d6;
+            --soft: #f0ebe2;
+            --accent: #8b5e34;
+            --accent2: #275c65;
+            --danger: #9b2d22;
+            --ok: #2f6b3f;
+            --card-radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+            line-height: 1.76;
+            letter-spacing: 0;
+        }
+
+        .wrap {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 18px 14px 56px;
+        }
+
+        header {
+            padding: 26px 18px 18px;
+            background: #fffefa;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.22;
+            margin: 0 0 12px;
+            letter-spacing: -.03em;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 15px;
+            margin: 0;
+        }
+
+        nav {
+            margin: 14px 0 22px;
+            display: grid;
+            gap: 8px;
+        }
+
+        nav a {
+            display: block;
+            padding: 12px 14px;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        section {
+            margin: 16px 0;
+            padding: 20px 16px;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--card-radius);
+        }
+
+        h2 {
+            font-size: 22px;
+            line-height: 1.3;
+            margin: 0 0 14px;
+            letter-spacing: 0;
+        }
+
+        h3 {
+            font-size: 17px;
+            margin: 20px 0 8px;
+        }
+
+        p {
+            margin: 9px 0
+        }
+
+        .lead {
+            font-size: 17px;
+            font-weight: 650;
+            line-height: 1.65;
+        }
+
+        .note,
+        .warn,
+        .example,
+        .rule {
+            margin: 13px 0;
+            padding: 13px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+            background: #faf6ed;
+        }
+
+        .warn {
+            border-color: #ead0cd;
+            background: #fff2f0;
+        }
+
+        .warn strong {
+            color: var(--danger)
+        }
+
+        .rule {
+            background: #eef6f7;
+            border-color: #cfe3e6;
+        }
+
+        .example {
+            background: #f3eee5;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+
+        li {
+            margin: 4px 0
+        }
+
+        table {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            margin: 12px 0;
+            font-size: 14px;
+            background: #fff;
+        }
+
+        tbody {
+            display: table;
+            width: 100%;
+            min-width: 520px;
+        }
+
+        th,
+        td {
+            padding: 10px 9px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            background: #f1eadf;
+            font-weight: 700;
+        }
+
+        tr:last-child td {
+            border-bottom: 0
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: var(--soft);
+            color: #4a3b2b;
+            font-size: 12px;
+            font-weight: 700;
+            margin-right: 5px;
+            white-space: nowrap;
+        }
+
+        .danger {
+            color: var(--danger);
+            font-weight: 700
+        }
+
+        .ok {
+            color: var(--ok);
+            font-weight: 700
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .two {
+            display: grid;
+            gap: 10px;
+        }
+
+        .article-figure {
+            margin: 16px 0 18px;
+        }
+
+        .article-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+        }
+
+        .article-figure figcaption {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55;
+            margin-top: 7px;
+        }
+
+        @media (min-width:680px) {
+            .two {
+                grid-template-columns: 1fr 1fr
+            }
+
+            h1 {
+                font-size: 34px
+            }
+
+            .wrap {
+                padding-top: 30px
+            }
+
+            table {
+                display: table;
+                min-width: 0;
+                overflow: hidden;
+            }
+
+            tbody {
+                display: table-row-group;
+                min-width: 0;
+            }
+        }
+
+        .mini-card {
+            padding: 13px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fffaf2;
+        }
+
+        .mini-card b {
+            display: block;
+            margin-bottom: 4px
+        }
+
+        footer {
+            color: var(--muted);
+            font-size: 13px;
+            padding: 14px 2px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="wrap">
+        <header>
+            <h1>病毒、细菌、炎症、用药：一篇说人话的整理</h1>
+            <p class="subtitle">把前面的问题重新分组：先搞清概念，再看常见病，再看药怎么用。适合手机慢慢读。</p>
+        </header>
+
+        <nav aria-label="目录">
+            <a href="#concept">1. 先分清几个词：感染、炎症、过敏、痒</a>
+            <a href="#virus-bacteria">2. 病毒和细菌怎么区分</a>
+            <a href="#antibiotic">3. 为什么以前总用青霉素</a>
+            <a href="#virus-treatment">4. 病毒感染怎么治，干扰素是什么</a>
+            <a href="#drugs">5. 消炎药、抗生素、止痛药怎么分</a>
+            <a href="#allergy">6. 过敏和氯雷他定怎么用</a>
+            <a href="#itch">7. 痒有哪些原因</a>
+            <a href="#names">8. 风湿、风团、中风这些名字怎么来的</a>
+            <a href="#doctor">9. 哪些情况别在家硬扛</a>
+        </nav>
+
+        <section id="concept">
+            <h2>1. 先分清几个词</h2>
+            <p class="lead">很多误会都来自一个点：把“感染”“炎症”“消炎药”“抗生素”混成了一件事。</p>
+
+            <figure class="article-figure">
+                <picture>
+                    <source srcset="assets/medicine-basics-illustrations/01-concepts.webp" type="image/webp">
+                    <img src="assets/medicine-basics-illustrations/01-concepts.png" alt="小黑把感染、炎症、抗生素和抗炎药这几个概念分到不同抽屉里" loading="lazy">
+                </picture>
+                <figcaption>先把词分开放。词混在一起，后面用药就容易拧巴。</figcaption>
+            </figure>
+
+            <div class="two">
+                <div class="mini-card">
+                    <b>感染</b>
+                    有东西进来了，比如病毒、细菌、真菌、寄生虫。
+                </div>
+                <div class="mini-card">
+                    <b>炎症</b>
+                    身体启动防御和修复。红、肿、热、痛、痒，都可能是炎症表现。
+                </div>
+                <div class="mini-card">
+                    <b>抗生素</b>
+                    专门对付细菌。对病毒性感冒通常没用。
+                </div>
+                <div class="mini-card">
+                    <b>抗炎药</b>
+                    把炎症反应压低一些，减轻发热、疼痛、肿胀，不等于杀菌。
+                </div>
+            </div>
+
+            <div class="example">
+                <p><b>举例：</b>脚踝扭伤了，没有病毒，也没有细菌，但会红肿疼。这叫炎症，不叫感染。</p>
+                <p>流感是病毒感染，也会引起炎症。肺炎球菌肺炎是细菌感染，也会引起炎症。</p>
+            </div>
+
+            <div class="rule">
+                <p><b>一句话：</b>炎症不是敌人，它像消防队。火小的时候不用乱扑；火烧大了，就要控制。</p>
+            </div>
+        </section>
+
+        <section id="virus-bacteria">
+            <h2>2. 病毒和细菌怎么区分</h2>
+            <p>症状只能提示方向，不能百分百判断。发烧、黄鼻涕、黄痰，都不能单独证明是细菌感染。</p>
+
+            <figure class="article-figure">
+                <picture>
+                    <source srcset="assets/medicine-basics-illustrations/02-virus-bacteria.webp" type="image/webp">
+                    <img src="assets/medicine-basics-illustrations/02-virus-bacteria.png" alt="小黑用放大镜观察天平两边的病毒线索和细菌线索" loading="lazy">
+                </picture>
+                <figcaption>症状像线索，不是判决书。要看整体，也要看变化。</figcaption>
+            </figure>
+
+            <table>
+                <tr>
+                    <th>更像病毒</th>
+                    <th>更像细菌</th>
+                </tr>
+                <tr>
+                    <td>流鼻涕、打喷嚏、咳嗽、喉咙痛、全身酸痛，常见于感冒、流感、新冠。</td>
+                    <td>局部化脓、持续高烧、明显疼痛、尿痛尿频、伤口红肿流脓等。</td>
+                </tr>
+            </table>
+
+            <h3>常见病大致病因</h3>
+            <table>
+                <tr>
+                    <th>疾病</th>
+                    <th>常见原因</th>
+                </tr>
+                <tr>
+                    <td>普通感冒</td>
+                    <td>大多数是病毒</td>
+                </tr>
+                <tr>
+                    <td>流感、新冠、手足口、水痘</td>
+                    <td>病毒</td>
+                </tr>
+                <tr>
+                    <td>化脓性扁桃体炎</td>
+                    <td>常见为细菌，尤其链球菌</td>
+                </tr>
+                <tr>
+                    <td>尿路感染</td>
+                    <td>多数是细菌</td>
+                </tr>
+                <tr>
+                    <td>中耳炎、鼻窦炎、肺炎、胃肠炎</td>
+                    <td>病毒和细菌都可能</td>
+                </tr>
+            </table>
+
+            <h3>病毒感染后为什么会“变成”细菌感染</h3>
+            <p>不是病毒变成细菌。是病毒先把黏膜、气道、皮肤屏障破坏了，细菌趁机上来。</p>
+            <div class="example">
+                <p><b>比如流感：</b>前几天高烧、酸痛，是流感病毒。过了几天本来要好，突然又高烧、咳脓痰、喘，这时可能合并细菌性肺炎。</p>
+            </div>
+        </section>
+
+        <section id="antibiotic">
+            <h2>3. 为什么以前总用青霉素</h2>
+            <p>过去很多地方检测条件有限，医生很难快速判断是病毒还是细菌。为了“别漏掉细菌感染”，抗生素用得很宽。</p>
+
+            <figure class="article-figure">
+                <picture>
+                    <source srcset="assets/medicine-basics-illustrations/03-antibiotic-history.webp" type="image/webp">
+                    <img src="assets/medicine-basics-illustrations/03-antibiotic-history.png" alt="小黑撑着写有别漏掉的大伞，在检测慢的情况下同时观察病毒和细菌，旁边日历显示休息后慢慢恢复" loading="lazy">
+                </picture>
+                <figcaption>以前用得宽，很多时候是怕漏掉细菌。可有些感冒，本来也会慢慢好。</figcaption>
+            </figure>
+
+            <p>还有一个心理误会：感冒本来 5～10 天会好。打了青霉素以后好了，人就容易以为是青霉素治好的。</p>
+
+            <div class="warn">
+                <p><strong>关键点：</strong>青霉素、头孢、阿莫西林这类药对细菌有用，对单纯病毒性感冒通常没用。</p>
+            </div>
+        </section>
+
+        <section id="virus-treatment">
+            <h2>4. 病毒感染怎么治</h2>
+            <p>病毒难治，是因为它躲进人体细胞里复制。你要杀它，很容易伤到自己的细胞。</p>
+
+            <figure class="article-figure">
+                <picture>
+                    <source srcset="assets/medicine-basics-illustrations/04-virus-treatment.webp" type="image/webp">
+                    <img src="assets/medicine-basics-illustrations/04-virus-treatment.png" alt="小黑在细胞舱外拉起警报，旁边有免疫、疫苗和特定药三个处理方向" loading="lazy">
+                </picture>
+                <figcaption>病毒躲进细胞里。处理它，常常不是“随便来个杀病毒药”这么简单。</figcaption>
+            </figure>
+
+            <h3>对病毒，医学主要有三招</h3>
+            <ul>
+                <li><b>靠免疫系统：</b>普通感冒多数就是自己清除。</li>
+                <li><b>疫苗：</b>提前训练免疫系统，比如流感疫苗、水痘疫苗。</li>
+                <li><b>抗病毒药：</b>阻止特定病毒复制，比如奥司他韦用于流感，阿昔洛韦用于疱疹类病毒。</li>
+            </ul>
+
+            <h3>干扰素是什么</h3>
+            <p>干扰素不是“直接杀病毒的药”。它更像细胞发出的警报：“附近有病毒，大家进入抗病毒状态。”</p>
+            <p>人体本来就会产生干扰素。医学上也可以人工制造，用在某些特定病毒病里。但它不是普通感冒的万能药，也可能带来发热、乏力、肌肉酸痛等副作用。</p>
+        </section>
+
+        <section id="drugs">
+            <h2>5. 消炎药、抗生素、止痛药怎么分</h2>
+
+            <figure class="article-figure">
+                <picture>
+                    <source srcset="assets/medicine-basics-illustrations/05-drug-types.webp" type="image/webp">
+                    <img src="assets/medicine-basics-illustrations/05-drug-types.png" alt="小黑拿着不同钥匙，对应抗生素、布洛芬和对乙酰氨基酚的不同用途" loading="lazy">
+                </picture>
+                <figcaption>药像钥匙。钥匙拿错了，门打不开，还可能添麻烦。</figcaption>
+            </figure>
+
+            <h3>抗生素：杀细菌</h3>
+            <p>常见名字：</p>
+            <p>
+                <span class="pill">青霉素类</span>青霉素、阿莫西林、氨苄西林<br>
+                <span class="pill">头孢类</span>头孢氨苄、头孢呋辛、头孢克肟、头孢曲松<br>
+                <span class="pill">大环内酯类</span>阿奇霉素、红霉素、克拉霉素<br>
+                <span class="pill">沙星类</span>左氧氟沙星、环丙沙星、莫西沙星<br>
+                <span class="pill">其他</span>甲硝唑、克林霉素、复方新诺明
+            </p>
+            <div class="warn">
+                <p><strong>注意：</strong>抗生素不是普通“消炎药”。它不治病毒，不治过敏，不治扭伤。</p>
+            </div>
+
+            <h3>非甾体抗炎药：退烧、止痛、抗炎</h3>
+            <p>常见：布洛芬、双氯芬酸、萘普生、塞来昔布。</p>
+            <p>适合经痛、牙痛、肌肉关节痛、扭伤疼、发烧不舒服等。</p>
+
+            <h3>对乙酰氨基酚：退烧、止痛</h3>
+            <p>也叫扑热息痛。胃刺激相对小，但过量会伤肝。很多复方感冒药里也含它，不能重复叠加吃。</p>
+
+            <h3>布洛芬不是任何情况都能吃</h3>
+            <ul>
+                <li>胃溃疡、胃出血风险高的人要谨慎。</li>
+                <li>严重肾病、明显脱水、呕吐腹泻喝不进水时要谨慎。</li>
+                <li>孕晚期不建议自行使用。</li>
+                <li>对 NSAIDs 过敏、有相关哮喘史的人不能乱用。</li>
+                <li>正在用抗凝药的人要问医生。</li>
+            </ul>
+
+            <div class="rule">
+                <p><b>家庭记法：</b>布洛芬是“让你没那么难受”，不是“把病根治好”。牙痛吃了不疼，牙该看还得看。</p>
+            </div>
+        </section>
+
+        <section id="allergy">
+            <h2>6. 过敏和氯雷他定怎么用</h2>
+            <p>过敏就是免疫系统误报警。花粉、尘螨、猫毛、食物，本来未必危险，但身体把它们当敌人，于是释放组胺，出现痒、风团、流鼻涕、打喷嚏、眼睛痒。</p>
+
+            <figure class="article-figure">
+                <picture>
+                    <source srcset="assets/medicine-basics-illustrations/06-allergy-triage.webp" type="image/webp">
+                    <img src="assets/medicine-basics-illustrations/06-allergy-triage.png" alt="小黑在两个舱门之间分流普通过敏和需要急救的严重过敏" loading="lazy">
+                </picture>
+                <figcaption>轻的按说明处理。喉咙紧、呼吸难、嘴唇舌头肿，不等药慢慢起效。</figcaption>
+            </figure>
+
+            <h3>常用抗过敏药</h3>
+            <table>
+                <tr>
+                    <th>类型</th>
+                    <th>例子</th>
+                    <th>特点</th>
+                </tr>
+                <tr>
+                    <td>第一代抗组胺药</td>
+                    <td>扑尔敏、苯海拉明</td>
+                    <td>容易困，开车前不适合</td>
+                </tr>
+                <tr>
+                    <td>第二代抗组胺药</td>
+                    <td>氯雷他定、西替利嗪、非索非那定</td>
+                    <td>更常用，犯困少一些</td>
+                </tr>
+                <tr>
+                    <td>鼻喷激素</td>
+                    <td>布地奈德、氟替卡松</td>
+                    <td>过敏性鼻炎常用，主要局部作用</td>
+                </tr>
+                <tr>
+                    <td>肾上腺素</td>
+                    <td>急救用</td>
+                    <td>用于严重过敏反应，不是普通止痒药</td>
+                </tr>
+            </table>
+
+            <h3>氯雷他定到底怎么吃</h3>
+            <ul>
+                <li><b>偶尔过敏：</b>出现症状后按说明书剂量吃。好了通常不用“巩固”。</li>
+                <li><b>过敏原还在：</b>比如花粉季、每天尘螨过敏，可以连续规律吃一段时间。</li>
+                <li><b>慢性荨麻疹：</b>如果风团反复持续数周，应让医生评估，常常需要规律用药。</li>
+            </ul>
+
+            <div class="rule">
+                <p><b>不是药要“攒几天才有效”。</b>而是过敏原因还在，所以可能需要连续控制。</p>
+            </div>
+
+            <div class="warn">
+                <p><strong>这些不是普通小过敏：</strong>喉咙发紧、嘴唇舌头肿、呼吸困难、晕倒、全身迅速加重。要立刻急救，不要等氯雷他定慢慢起效。</p>
+            </div>
+        </section>
+
+        <section id="itch">
+            <h2>7. 痒有哪些原因</h2>
+            <p>痒不是一种病，是一种感觉。它可能来自皮肤，也可能来自神经或全身疾病。</p>
+
+            <figure class="article-figure">
+                <picture>
+                    <source srcset="assets/medicine-basics-illustrations/07-itch-causes.webp" type="image/webp">
+                    <img src="assets/medicine-basics-illustrations/07-itch-causes.png" alt="小黑调试写有痒感的收音机，周围有过敏、干燥、真菌和神经等不同信号来源" loading="lazy">
+                </picture>
+                <figcaption>痒像一个信号。信号从哪里来，处理办法就不一样。</figcaption>
+            </figure>
+
+            <table>
+                <tr>
+                    <th>原因</th>
+                    <th>常见表现</th>
+                    <th>处理思路</th>
+                </tr>
+                <tr>
+                    <td>过敏</td>
+                    <td>风团、鼻痒、眼痒、突然发作</td>
+                    <td>避开过敏原，必要时抗组胺药</td>
+                </tr>
+                <tr>
+                    <td>皮肤干燥</td>
+                    <td>冬天、洗澡后痒，皮肤干裂</td>
+                    <td>少用热水久洗，勤保湿</td>
+                </tr>
+                <tr>
+                    <td>湿疹/皮炎</td>
+                    <td>红、痒、反复，越抓越重</td>
+                    <td>保湿，必要时外用抗炎药</td>
+                </tr>
+                <tr>
+                    <td>真菌感染</td>
+                    <td>脚趾缝痒、脱皮、潮湿处多</td>
+                    <td>抗真菌药，不要乱涂激素</td>
+                </tr>
+                <tr>
+                    <td>寄生虫</td>
+                    <td>夜间特别痒，家人可能也痒</td>
+                    <td>就医确认，比如疥疮</td>
+                </tr>
+                <tr>
+                    <td>全身疾病</td>
+                    <td>全身痒但皮肤看不出明显问题</td>
+                    <td>查肝胆、肾、血液、内分泌等原因</td>
+                </tr>
+            </table>
+
+            <p>有些痒不是组胺主导，所以吃氯雷他定不一定有效。比如湿疹、肾病、胆汁淤积、神经性瘙痒，处理方向都不一样。</p>
+        </section>
+
+        <section id="names">
+            <h2>8. 风湿、风团、中风这些名字怎么来的</h2>
+            <p>很多病名是历史留下来的标签，不代表现代医学真的认为“风、火、湿”在身体里跑。</p>
+
+            <figure class="article-figure">
+                <picture>
+                    <source srcset="assets/medicine-basics-illustrations/08-name-origin.webp" type="image/webp">
+                    <img src="assets/medicine-basics-illustrations/08-name-origin.png" alt="小黑掀开旧名字标签，看到下面写着机制的现代医学解释" loading="lazy">
+                </picture>
+                <figcaption>名字是旧标签。真要理解，还得看背后的机制。</figcaption>
+            </figure>
+
+            <table>
+                <tr>
+                    <th>名字</th>
+                    <th>现代理解</th>
+                    <th>为什么这么叫</th>
+                </tr>
+                <tr>
+                    <td>风团</td>
+                    <td>荨麻疹的一种皮损</td>
+                    <td>来得快、去得快，像风一样跑</td>
+                </tr>
+                <tr>
+                    <td>风湿</td>
+                    <td>风湿免疫类疾病的大范围说法</td>
+                    <td>古人观察到阴冷潮湿时关节痛更明显</td>
+                </tr>
+                <tr>
+                    <td>中风</td>
+                    <td>脑卒中</td>
+                    <td>突然倒下，像被风击中</td>
+                </tr>
+                <tr>
+                    <td>痛风</td>
+                    <td>尿酸结晶引起的关节炎</td>
+                    <td>疼痛来得突然、猛烈</td>
+                </tr>
+                <tr>
+                    <td>水痘</td>
+                    <td>水痘-带状疱疹病毒感染</td>
+                    <td>皮疹像小水泡</td>
+                </tr>
+                <tr>
+                    <td>鹅口疮</td>
+                    <td>口腔念珠菌感染</td>
+                    <td>嘴里白白一层，像鹅口</td>
+                </tr>
+                <tr>
+                    <td>鸡眼</td>
+                    <td>局部角质增生</td>
+                    <td>外观像鸡的眼睛</td>
+                </tr>
+                <tr>
+                    <td>脚气</td>
+                    <td>足癣，多数是真菌感染</td>
+                    <td>俗名保留下来，不是“气”的问题</td>
+                </tr>
+            </table>
+
+            <p>医生今天说“痛风”“中风”“风团”，只是沿用大家听得懂的名字。真正诊断还是看现代医学里的病因和机制。</p>
+        </section>
+
+        <section id="doctor">
+            <h2>9. 哪些情况别在家硬扛</h2>
+            <figure class="article-figure">
+                <picture>
+                    <source srcset="assets/medicine-basics-illustrations/09-see-doctor.webp" type="image/webp">
+                    <img src="assets/medicine-basics-illustrations/09-see-doctor.png" alt="小黑拨动分流开关，把高烧不退、呼吸难、胸痛和严重过敏送往就医舱门" loading="lazy">
+                </picture>
+                <figcaption>小问题可以观察。出现这些信号，就别等，尽快去看。</figcaption>
+            </figure>
+
+            <ul>
+                <li>高烧持续不退，精神很差，呼吸急促或胸痛。</li>
+                <li>感冒几天后本来好转，突然再次高烧、咳脓痰、喘。</li>
+                <li>严重过敏：喉咙紧、嘴唇舌头肿、呼吸困难、晕厥。</li>
+                <li>突然剧烈头痛、胸痛、持续腹痛、疑似骨折。</li>
+                <li>全身痒超过数周，尤其没有明显皮疹，或伴黄疸、消瘦、发热。</li>
+                <li>婴幼儿、孕妇、老人、有基础病的人，用药前更要谨慎。</li>
+            </ul>
+
+            <div class="note">
+                <p>这篇是帮助理解常见概念，不替代诊断。真正用药要看年龄、体重、病史、过敏史、基础病和说明书。</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>整理主题：病毒与细菌、炎症、抗生素、抗病毒、止痛药、过敏、瘙痒、疾病名称来源。</p>
+        </footer>
+    </main>
+</body>
+
+</html>
