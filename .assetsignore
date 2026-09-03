@@ -1,0 +1,9 @@
+.git/
+.wrangler/
+.DS_Store
+Thumbs.db
+.gitignore
+.assetsignore
+AGENTS.md
+README.md
+wrangler.toml

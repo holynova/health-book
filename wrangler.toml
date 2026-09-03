@@ -1,0 +1,9 @@
+name = "health-book"
+compatibility_date = "2026-09-04"
+
+[assets]
+directory = "."
+
+[[routes]]
+pattern = "health-book.xiaosang.cc"
+custom_domain = true
